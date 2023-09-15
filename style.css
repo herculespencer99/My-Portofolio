@@ -11,7 +11,8 @@ html{
 
 body{
     font-family: 'Poppins',sans-serif;
-    background-color: rgb(6, 6, 33);
+    background-color:#fff ;
+    color: #000;
 }
 
 h1{
@@ -25,12 +26,15 @@ h2{
 }
 
 h3{
-    color: #fff;
     font-size: 1.4rem;
     font-weight: 800;
 }
+h4{
+    font-size: 1.4rem;
+}
 
 p{
+    color:#fff;
     font-size: 1.4rem;
     margin: 0 70px;
     font-weight: 500;
@@ -56,27 +60,44 @@ button:hover, button:focus {
     outline: rgb(90, 14, 184);
 } 
 
-.navbar{
+/* .header{
     background-color: rgb(1, 1, 11);
+} */
+input[type="checkbox"]{
+    display: none;
+}
+
+.fa-sun:hover{
+    color: rgb(90, 14, 184);
+    cursor: pointer;
+}
+.fa-moon{
+    display: none;
+}
+
+.navbar{
+    color: rgb(220, 220, 220);
     font-size: 16px;
     top: 0;
     left: 0;
     box-shadow: 0 5px 10px rgba(0,0,0, 0.2);
 }
 
+
 .navbar h2{
-    color: rgb(220, 220, 220);
+    color: #000;
 }
 .navbar-light .navbar-nav .nav-link{
     padding: 0 20px;
-    color: rgb(220, 220, 220);
+    color: #000;
     transition: 0.3s ease;
 }
 .nav-link:focus{
     color: rgb(90, 14, 184);
 }
 
-.navbar-light .navbar-nav .nav-link:hover{
+.navbar-light .navbar-nav .nav-link:hover,
+.dark .navbar-light .navbar-nav .nav-link:hover{
     color: rgb(90, 14, 184);
 }
 
@@ -87,6 +108,64 @@ button:hover, button:focus {
 .navbar-light .navbar-toggler {
     border: none;
     outline: none;
+}
+
+/* Add nav blur */
+.navbar-blur {  
+    background-color:rgb(220, 220, 220); 
+    color: #000;
+}
+
+.navbar::after{
+    content: '';
+    position: absolute;
+    width: 1000%;
+    height: 100%;
+    background-color: rgba(220, 220, 220, .5);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px); 
+    top: 0;
+    left: 0;
+    z-index: -5;
+} 
+
+/*================================== Dark theme ======================*/
+.dark,
+.dark-theme{
+    background-color: rgb(6, 6, 33);
+    color: #fff;
+}
+
+.dark .navbar-blur{  
+    background-color: rgb(1, 1, 11); 
+    color: #fff;
+}
+.dark .navbar h2, .dark .navbar-light .navbar-nav .nav-link{
+    color: #fff;
+}
+.dark .fa-moon{
+    display: block;
+}
+.dark .fa-sun{
+    display: none;
+}
+
+.dark .fa-moon:hover{
+    color: rgb(90, 14, 184);
+    cursor: pointer;
+}
+
+.dark .navbar::after{
+    content: '';
+    position: absolute;
+    width: 1000%;
+    height: 100%;
+    background-color: rgb(1, 1, 11, .5);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px); 
+    top: 0;
+    left: 0;
+    z-index: -5;
 }
 
 @media only screen and (max-width: 991px){
@@ -108,7 +187,6 @@ button:hover, button:focus {
     #navbarSupportedContent > ul > li:nth-child(n) > a{
         padding: 10px 0;
     }
-    #navbarSupportedContent
 }
 
 #bar{
@@ -127,19 +205,92 @@ button:hover, button:focus {
     color: coral;
 }
 
+.content{
+    margin-top: 7rem;
+    margin-bottom: 20rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 5rem; 
+}
+
+#intro{
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; */
+    width: 100%; 
+} 
+#intro img{
+    width: 50%;
+    border-radius: 50%;
+    border: solid 5px rgba(90, 14, 184, .8);
+}
+
+.description{
+    display: grid;
+    width: 50%;
+    text-align: initial;
+    margin-bottom: rem;
+}
+
+.social{ 
+    display: flex;
+    justify-content: initial;
+    column-gap: 1.25rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+} 
+
+.social_link{
+    display: flex;
+    background-color: rgb(18, 18, 62);
+    padding: .5rem;
+    color: #fff ;
+    font-size: 1.5rem;
+}
+
+
+.social_link:hover{
+    background-color: rgb(90, 14, 184);
+    color: #fff;
+    outline: none;
+}
+
+.foto{
+    width: 50%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.card{
+    background-color: #fff;
+    color: #000;
+    box-shadow: 5px 5px 10px rgba(0,0,0, 0.2)
+}
+
+.dark .card{
+    background-color: rgb(18, 18, 62);
+    color: rgb(220, 220, 220);
+    box-shadow: 5px 5px 10px rgba(1, 1, 11,.5);
+}
+
 .about-me {
     height: 60vh;
     margin-top: 10rem;
     margin-bottom: 10rem;
-    background-color: rgb(18, 18, 62);
-    color: #fff;
+    backdrop-filter: blur(24px);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px #fff;
-    /* margin: 0 10rem;
+   /*  border: 2px solid #fff;
+    margin: 0 10rem;
     
     width: 80%;
     
@@ -147,7 +298,8 @@ button:hover, button:focus {
     background-color: rgb(90, 14, 184);
     border-radius: 10px */;
 }
-.about-me span{
+
+#intro span{
     color: rgb(90, 14, 184);
 }
 hr{
@@ -155,15 +307,16 @@ hr{
     height: 1px;
     background-color:rgb(90, 14, 184);
 }
-#intro, #aboutme, #featured{
+
+#aboutme, #featured, #contact{
     visibility: hidden;
 }
 
 .project{
     cursor: pointer;
     height: 50vh;
-    width: 50vh;
-    margin: 2rem;
+    width: 55vh;
+    margin: 1rem;
     background-color: rgb(18, 18, 62);
     color: #fff;
     border-radius: 5px;
@@ -174,11 +327,12 @@ hr{
 }
 
 .project img{
-    transition: 0.3s all;
-    
+    transition: 0.3s all;    
 }
+
 .project:hover{
     transform: scale(1.08);
+    opacity:.7 ;
 }
 
 .project .det-btn{
@@ -192,19 +346,70 @@ hr{
     transform: translateY(0);
     opacity: 1;    
 }
-.project img{
-}
 
 .project .det-btn:hover{
     background-color: rgb(6, 6, 33);
     color: rgb(90, 14, 184);
     outline: rgb(90, 14, 184);
 }
-#featured{
 
+#contact{
+    margin-top: 10rem;
 }
-@media screen and (max-width:800) {
-    #bar
-    #
-    
+
+
+
+footer{
+    background-color: #797676;
+}
+footer h5{
+    color: #d8d8d8;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+
+/*===============================SCROLL UP ========================= */
+.scrollup{
+    position: fixed;
+    right: 2rem;
+    bottom: -50%;
+    background-color: rgb(18, 18, 62);
+    padding: 8px;
+    display: inline-flex;
+    border-radius: .25rem;
+    color: rgb(90, 14, 184);
+    font-size: 1.4rem;
+    box-shadow:0 4px 12px rgba(1, 1, 11, .5);
+    z-index: 5;
+    transition: bottom .4s, transform .4s;
+}
+
+.scrollup:hover{
+    transform: translateY(-.25rem);
+    background-color: rgb(18, 18, 62);
+    color: #fff;
+}
+
+/*================================ SCROLL BAR ================================= */
+::-webkit-scrollbar{
+    width: 1rem;
+    border-radius: .5rem;
+    background-color: rgba(0,0,0, 0.2);
+}
+.dark ::-webkit-scrollbar{
+    background-color: rgb(18,18,62);
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgba(1, 1, 11, .6);
+    border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color:  rgba(1, 1, 11, 1);
+}
+
+/* Show Scroll Up */
+.show-scroll{
+    bottom: 3rem
 }
